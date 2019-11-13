@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="clock.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="clock">
+        <div class="dials">
+            <div></div>
+            <div>
+            </div>
+            <div>
+                <p class="clock_number">15</p>
+            </div>
+            <div></div>
+            <div></div>
+            <div>
+                <p class="clock_number">30</p>
+            </div>
+            <div></div>
+            <div>
+            </div>
+            <div>
+                <p class="clock_number">45</p>
+            </div>
+            <div></div>
+            <div></div>
+            <div>
+                <p class="clock_number">0</p>
+            </div>
+        </div>
+        <div class="minute hand"></div>
+        <div class="second hand"></div>
+    </div>
+
+    <div>
+        <p id="timer">00:00:000</p>
+
+        <button id="start_stopwatch">スタート</button>
+        <button id="reset_stopwatch">リセット</button>
+    </div>
+
+    <script>
+        var time_count = 0;
+        var time;
+        var clockIntervalFlag = true;
+
+        var timer = document.getElementById("timer");
+
+        const minute = document.querySelector(".minute.hand");
+        const second = document.querySelector(".second.hand");
+
+        document.getElementById("start_stopwatch").addEventListener('click', function () {
+            if (clockIntervalFlag) {
+                time = setInterval(() => {
+                    time_count++;
+
+                    const ms = time_count % 100;
+                    const s = Math.floor(time_count / 100) % 60;
+                    const m = Math.floor(time_count / 6000);
+
+                    second.style.transform = `rotate(${(360 / 60) * s}deg)`;
+                    minute.style.transform = `rotate(${(360 / 60) * m}deg)`;
+                    timer.textContent = ('00' + m).slice(-2) + ':' + ('00' + s).slice(-2) + ':' + ('00' + ms).slice(-2);
+                }, 10);
+                clockIntervalFlag = false;
+                document.getElementById("start_stopwatch").textContent = "ストップ";
+            } else {
+                clearInterval(time);
+                clockIntervalFlag = true;
+                document.getElementById("start_stopwatch").textContent = "スタート";
+            }
+        });
+
+        document.getElementById("reset_stopwatch").addEventListener('click', function () {
+            if (clockIntervalFlag) {
+                timer.textContent = '00:00:00';
+                second.style.transform = `rotate(${0}deg)`;
+                minute.style.transform = `rotate(${0}deg)`;
+                time_count = 0;
+            }
+        });
+    </script>
+</body>
+
+</html>

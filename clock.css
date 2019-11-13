@@ -1,0 +1,126 @@
+.clock {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: solid 2px silver;
+}
+
+.clock::after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 8px);
+    left: calc(50% - 8px);
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    background-color: silver;
+}
+
+.dials {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.dials>div {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 3px);
+    width: 6px;
+    height: 50%;
+    transform-origin: bottom;
+}
+
+.dials>div::after {
+    position: absolute;
+    top: 0;
+    content: "";
+    width: 6px;
+    height: 15px;
+    background-color: silver;
+}
+
+.hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    background-color: silver;
+    transform-origin: 50% 100%;
+}
+
+.minute.hand {
+    width: 4px;
+    height: 120px;
+}
+
+.second.hand {
+    width: 2px;
+    height: 130px;
+}
+
+.dials div:nth-child(1) {
+    transform: rotate(30deg);
+}
+
+.dials div:nth-child(2) {
+    transform: rotate(60deg);
+}
+
+.dials div:nth-child(3) {
+    transform: rotate(90deg);
+}
+
+.dials div:nth-child(4) {
+    transform: rotate(120deg);
+}
+
+.dials div:nth-child(5) {
+    transform: rotate(150deg);
+}
+
+.dials div:nth-child(6) {
+    transform: rotate(180deg);
+}
+
+.dials div:nth-child(7) {
+    transform: rotate(210deg);
+}
+
+.dials div:nth-child(8) {
+    transform: rotate(240deg);
+}
+
+.dials div:nth-child(9) {
+    transform: rotate(270deg);
+}
+
+.dials div:nth-child(10) {
+    transform: rotate(300deg);
+}
+
+.dials div:nth-child(11) {
+    transform: rotate(330deg);
+}
+
+.dials div:nth-child(12) {
+    transform: rotate(360deg);
+}
+
+.dials div:nth-child(3) p {
+    transform: rotate(-90deg);
+    padding: 0 15px 10px 0;
+}
+
+.dials div:nth-child(6) p {
+    transform: rotate(-180deg);
+    margin: 16px 0 16px 10px;
+}
+
+.dials div:nth-child(9) p {
+    transform: rotate(-270deg);
+}
+
+.dials div div:nth-child(12) p {
+    transform: rotate(-360deg);
+}
