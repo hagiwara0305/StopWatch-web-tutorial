@@ -4,6 +4,7 @@
     height: 300px;
     border-radius: 50%;
     border: solid 2px silver;
+    margin: 0 0 0 0;
 }
 
 .clock::after {
@@ -123,4 +124,13 @@
 
 .dials div div:nth-child(12) p {
     transform: rotate(-360deg);
+}
+
+.rap_list {
+    float: left;
+    margin: 10px 10px 0 0;
+}
+
+#rap_table{
+    margin: 16px 0 0 0;
 }
